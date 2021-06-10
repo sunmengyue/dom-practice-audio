@@ -17,7 +17,7 @@
         </div>
         <div class="controller__controls">
           <div id="play__pause"></div>
-          <progress class="progress" max="100" value="0"></progress>
+          <progress max="100" value="0"></progress>
         </div>
         <div>
           <progress max="100" value="80"></progress>
@@ -33,7 +33,9 @@
       let audio = document.getElementById('audio');
 
       audio.addEventListener('timeupdate', () => {
-        document.querySelector('.progress').value = audio.currentTime;
+        // document.querySelector('.progress').value = audio.currentTime;
+        let progress = Math.round((audio.currentTime / audio.duration) * 100);
+        document.querySelector('progress').value = progress;
       });
 
       audio.volume = 0.3;
