@@ -17,27 +17,34 @@
         </div>
         <div class="controller__controls">
           <div id="play__pause"></div>
-          <progress max="100" value="0"></progress>
+          <progress class="progress" max="100" value="0"></progress>
         </div>
         <div>
           <progress max="100" value="80"></progress>
         </div>
       </div>
+
       <audio src="./bensound-buddy.mp3" id="audio"></audio>
     </div>
 
     <script>
       let playPause = document.getElementById('play__pause');
-      playPause.innerHTML = `<img src="assets/play.png" onclick="play()"/>`;
-      const audio = document.getElementById('audio');
+      playPause.innerHTML = `<img src="assets/play.png" onClick="play()"/>`;
+      let audio = document.getElementById('audio');
+
+      audio.addEventListener('timeupdate', () => {
+        document.querySelector('.progress').value = audio.currentTime;
+      });
+
+      audio.volume = 0.3;
 
       function play() {
-        playPause.innerHTML = `<img src="assets/pause.png" onclick="play()"/>`;
+        playPause.innerHTML = `<img src="assets/pause.png" onclick="pause()"/>`;
         audio.play();
       }
 
       function pause() {
-        playPause.innerHTML = `<img src="assets/play.png" onclick="pause()"/>`;
+        playPause.innerHTML = `<img src="assets/play.png" onclick="play()"/>`;
         audio.pause();
       }
     </script>
