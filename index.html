@@ -7,5 +7,30 @@
     <title>audio play DOM practice</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <div class="main"></div>
+
+      <div class="controller">
+        <div class="album">
+          <img src="assets/FFX-TidusYuna_artwork.jpg" alt="" />
+        </div>
+        <div class="controller__controls">
+          <div id="play__pause"></div>
+          <progress max="100" value="0"></progress>
+        </div>
+        <div>
+          <progress max="100" value="80"></progress>
+        </div>
+      </div>
+      <audio src="./bensound-buddy.mp3" id="audio"></audio>
+    </div>
+
+    <script>
+      document.getElementById(
+        'play__pause',
+      ).innerHTML = `<img src="assets/play.png" onclick="play()"/>`;
+      const audio = document.getElementById('audio');
+    </script>
+  </body>
 </html>
