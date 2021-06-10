@@ -27,10 +27,19 @@
     </div>
 
     <script>
-      document.getElementById(
-        'play__pause',
-      ).innerHTML = `<img src="assets/play.png" onclick="play()"/>`;
+      let playPause = document.getElementById('play__pause');
+      playPause.innerHTML = `<img src="assets/play.png" onclick="play()"/>`;
       const audio = document.getElementById('audio');
+
+      function play() {
+        playPause.innerHTML = `<img src="assets/pause.png" onclick="play()"/>`;
+        audio.play();
+      }
+
+      function pause() {
+        playPause.innerHTML = `<img src="assets/play.png" onclick="pause()"/>`;
+        audio.pause();
+      }
     </script>
   </body>
 </html>

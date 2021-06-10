@@ -40,3 +40,6 @@
 #play__pause > img {
   width: 60px;
 }
+#play__pause > img:hover {
+  cursor: pointer;
+}
